@@ -9,12 +9,7 @@ public class OrientationCriteria : EvaluationCriteria
     [Serializable]
     public struct Rotations
     {
-        public float xMin;
-        public float xMax;
-        public float yMin;
-        public float yMax;
-        public float zMin;
-        public float zMax;
+        public Vector3 direction;
         public int cost;
     }
 

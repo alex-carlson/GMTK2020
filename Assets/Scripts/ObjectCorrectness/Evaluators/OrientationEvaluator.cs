@@ -7,29 +7,21 @@ public class OrientationEvaluator : ObjectEvaluator
 {
     public override Type Criteria => typeof(OrientationCriteria);
 
-    public override int Evaluate(EvaluationCandidateComponent evaluationCandidate)
+    public override int Evaluate(EvaluationCandidateComponent evaluationCandidate, EvaluationCriteria genericCriteria)
     {
-        EvaluationCriteria genericCriteria = GetEvaluationCriteria(evaluationCandidate);
-        if (genericCriteria == null)
-        {
-            Debug.LogError("Should be evaluating an Orientation, but couldn't find Orientation criteria.");
-            return 0;
-        }
 
-        OrientationCriteria objectCriteria = (OrientationCriteria) genericCriteria;
+        OrientationCriteria orientationCriteria = (OrientationCriteria) genericCriteria;
         
-        Vector3 candidateTransform = evaluationCandidate.transform.rotation.eulerAngles;
-        foreach (OrientationCriteria.Rotations r in objectCriteria.rotations)
+        Vector3 candidateDirection = evaluationCandidate.transform.up;
+        foreach (OrientationCriteria.Rotations r in orientationCriteria.rotations)
         {
-            Vector3 ct = candidateTransform;
-            if (r.xMin <= ct.x && ct.x <= r.xMax &&
-                r.yMin <= ct.y && ct.y <= r.yMax &&
-                r.zMin <= ct.z && ct.z <= r.zMax)
+            Vector3 evaluatingOrientation = r.direction.normalized;
+            if (Vector3.Dot(evaluatingOrientation, candidateDirection) > .9)
             {
                 return r.cost;
             }
         }
 
-        return objectCriteria.defaultCost;
+        return orientationCriteria.defaultCost;
     }
 }

@@ -15,13 +15,19 @@ public class ObjectCorrectnessTracker : MonoBehaviour
 {
 
     private List<EvaluationCandidateComponent> evaluationCandidates;
-    private List<ObjectEvaluator> evaluators;
+    private Dictionary<Type, ObjectEvaluator> evaluators;
 
     [SerializeField] private int currentScore = 0;
     
     void Start()
     {
-        evaluators = GetComponentsInChildren<ObjectEvaluator>().ToList();
+        evaluators = new Dictionary<Type, ObjectEvaluator>();
+        ObjectEvaluator[] objectEvaluators = GetComponentsInChildren<ObjectEvaluator>();
+        foreach (ObjectEvaluator objectEvaluator in objectEvaluators)
+        {
+            evaluators.Add(objectEvaluator.Criteria, objectEvaluator);
+        }
+
         evaluationCandidates = FindObjectsOfType<EvaluationCandidateComponent>().ToList();
     }
 
@@ -39,12 +45,10 @@ public class ObjectCorrectnessTracker : MonoBehaviour
         foreach (EvaluationCandidateComponent evaluatableObject in evaluationCandidates)
         {
             int objectScore = 0;
-            foreach (ObjectEvaluator evaluator in evaluators)
+            foreach (EvaluationCriteria criteria in evaluatableObject.criteria)
             {
-                if (ShouldBeEvaluated(evaluatableObject, evaluator))
-                {
-                    objectScore += evaluator.Evaluate(evaluatableObject);
-                }
+                ObjectEvaluator evaluator = evaluators[criteria.GetType()];
+                objectScore += evaluator.Evaluate(evaluatableObject, criteria);
             }
             Debug.LogFormat("Scored {0} as {1}", evaluatableObject.gameObject.name, objectScore);
             currentScore += objectScore;

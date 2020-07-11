@@ -10,7 +10,7 @@ using UnityEngine;
  */
 public abstract class ObjectEvaluator : MonoBehaviour
 {
-    public abstract int Evaluate(EvaluationCandidateComponent evaluationCandidate);
+    public abstract int Evaluate(EvaluationCandidateComponent evaluationCandidate, EvaluationCriteria criteria);
 
     public abstract Type Criteria { get; }
 
