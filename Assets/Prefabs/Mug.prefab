@@ -24,7 +24,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1781739075734118969}
   - component: {fileID: 1781739075734118968}
-  - component: {fileID: 1781739075734118975}
   m_Layer: 10
   m_Name: Mug
   m_TagString: Untagged
@@ -63,38 +62,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1781739075734118975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781739075734118974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 437d6ec63157d574988cc83cdc7c2dac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRoot: {fileID: 7768821239309372018}
-  muscleProps:
-    group: 8
-    mappingWeight: 1
-    pinWeight: 1
-    muscleWeight: 1
-    muscleDamper: 1
-    mapPosition: 0
-    internalCollisionIgnores:
-      ignoreAll: 0
-      muscles: []
-      groups: 
-    animatedTargetChildren: []
-  forceLayers: 1
-  mass: 1
-  propType: 0
-  pickedUpMaterial: {fileID: 0}
-  additionalPinOffsetAdd: {x: 0, y: 0, z: 0}
-  additionalPinWeight: 1
-  additionalPinMass: 1
 --- !u!1 &4614463510249640248
 GameObject:
   m_ObjectHideFlags: 0

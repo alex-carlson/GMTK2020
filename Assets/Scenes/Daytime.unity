@@ -159,7 +159,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.144
+    m_Strength: 0.065
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1261,7 +1261,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh150972
+  m_Name: pb_Mesh54070
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1620,6 +1620,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684946918}
   m_CullTransparentMesh: 0
+--- !u!1 &717177041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 717177041, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1676635405357607647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!138 &717177046
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717177041}
+  m_ConnectedBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!54 &717177047
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717177041}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &843819601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2527,26 +2563,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1676635405344558460, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+    - target: {fileID: 1676635404938025817, guid: bdb0d8832767e0c48b058a4322fcc7f2,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_ConnectedAnchor.x
+      value: -4.656614e-10
       objectReference: {fileID: 0}
-    - target: {fileID: 1676635406232986828, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+    - target: {fileID: 1676635404938025817, guid: bdb0d8832767e0c48b058a4322fcc7f2,
         type: 3}
-      propertyPath: m_Drag
-      value: 10
+      propertyPath: m_ConnectedAnchor.z
+      value: 4.842878e-10
       objectReference: {fileID: 0}
-    - target: {fileID: 1676635406232986829, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+    - target: {fileID: 1676635405693999431, guid: bdb0d8832767e0c48b058a4322fcc7f2,
         type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: a1e3ef68e2c78461089ab56644e6b319,
-        type: 2}
-    - target: {fileID: 1676635406232986829, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+      propertyPath: m_ConnectedAnchor.x
+      value: -5.9604655e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676635405693999431, guid: bdb0d8832767e0c48b058a4322fcc7f2,
         type: 3}
-      propertyPath: m_Center.y
-      value: 1.35
+      propertyPath: m_ConnectedAnchor.z
+      value: 1.4901169e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676635405709869512, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.0000000011920931
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676635405859811522, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.0000000012151045
       objectReference: {fileID: 0}
     - target: {fileID: 1676635406232986830, guid: bdb0d8832767e0c48b058a4322fcc7f2,
         type: 3}
@@ -2555,14 +2600,30 @@ PrefabInstance:
       objectReference: {fileID: 1632110474}
     - target: {fileID: 1676635406232986830, guid: bdb0d8832767e0c48b058a4322fcc7f2,
         type: 3}
-      propertyPath: walkSpeed
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676635406232986830, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+      propertyPath: grabPoint
+      value: 
+      objectReference: {fileID: 717177046}
+    - target: {fileID: 1676635406449039462, guid: bdb0d8832767e0c48b058a4322fcc7f2,
         type: 3}
-      propertyPath: throwForce
-      value: 35
+      propertyPath: m_ConnectedAnchor.x
+      value: 9.150303e-25
       objectReference: {fileID: 0}
+    - target: {fileID: 1676635406551253530, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+        type: 3}
+      propertyPath: muscles.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676635406551253530, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+        type: 3}
+      propertyPath: muscles.Array.data[14].name
+      value: Missing Target Reference!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676635406551253530, guid: bdb0d8832767e0c48b058a4322fcc7f2,
+        type: 3}
+      propertyPath: humanoidConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: ec93c877e6f836940b0b05babb99d713,
+        type: 2}
     - target: {fileID: 1676635406686213997, guid: bdb0d8832767e0c48b058a4322fcc7f2,
         type: 3}
       propertyPath: m_LocalPosition.x

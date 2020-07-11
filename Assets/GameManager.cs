@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
   IEnumerator DayCycle()
   {
     if (SceneManager.GetSceneByBuildIndex(nighttimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(nighttimeSceneIndex);
+    if (!SceneManager.GetSceneByBuildIndex(daytimeSceneIndex).isLoaded) SceneManager.LoadSceneAsync(daytimeSceneIndex, LoadSceneMode.Additive);
     if (!SceneManager.GetSceneByBuildIndex(propsSceneIndex).isLoaded) SceneManager.LoadSceneAsync(propsSceneIndex, LoadSceneMode.Additive);
-    SceneManager.LoadSceneAsync(daytimeSceneIndex, LoadSceneMode.Additive);
     yield return new WaitForSeconds(DaytimeCounterSeconds);
     StartCoroutine("NightCycle");
   }
