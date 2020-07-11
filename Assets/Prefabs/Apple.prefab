@@ -23,10 +23,9 @@ GameObject:
   m_Component:
   - component: {fileID: 61355323102912938}
   - component: {fileID: 1967828233367659657}
-  - component: {fileID: 7140853066582812799}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Apple
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,38 +61,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7140853066582812799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5179220135885237017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 437d6ec63157d574988cc83cdc7c2dac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRoot: {fileID: 3805648549967896191}
-  muscleProps:
-    group: 8
-    mappingWeight: 1
-    pinWeight: 1
-    muscleWeight: 1
-    muscleDamper: 1
-    mapPosition: 0
-    internalCollisionIgnores:
-      ignoreAll: 0
-      muscles: []
-      groups: 
-    animatedTargetChildren: []
-  forceLayers: 1
-  mass: 1
-  propType: 0
-  pickedUpMaterial: {fileID: 0}
-  additionalPinOffsetAdd: {x: 0, y: 0, z: 0}
-  additionalPinWeight: 1
-  additionalPinMass: 1
 --- !u!1 &7786295928749040691
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3805648549967896191}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,6 +163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a7c48fb6a330a6f4baaf20a32f9714e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7c48fb6a330a6f4baaf20a32f9714e4, type: 3}

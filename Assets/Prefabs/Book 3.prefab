@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7264665720226138703}
   - component: {fileID: 7702850952951635929}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 3
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +132,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cedcc09fe3f89b84fbc33d5e8e46b5aa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cedcc09fe3f89b84fbc33d5e8e46b5aa, type: 3}

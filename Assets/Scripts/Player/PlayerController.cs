@@ -19,8 +19,14 @@ public class PlayerController : MonoBehaviour
   public Rigidbody bodyRB;
   private float moveSpeed = 0;
 
+  private void Start()
+  {
+    playercam = Camera.main;
+  }
+
   void Update()
   {
+    if (!playercam) playercam = Camera.main;
     Vector3 playerRotation = transform.rotation.eulerAngles;
     Vector3 cameraRotation = playercam.transform.rotation.eulerAngles;
     transform.rotation = Quaternion.Euler(playerRotation.x, cameraRotation.y, cameraRotation.z);
