@@ -22,4 +22,6 @@ MonoBehaviour:
     cost: 2
   - surface: {fileID: 11400000, guid: 81c3779973b48cb47baff4a1c0e238c7, type: 2}
     cost: 5
+  - surface: {fileID: 11400000, guid: 0f3614ef9944b9b43ac75034e9903b58, type: 2}
+    cost: 0
   defaultCost: 1
