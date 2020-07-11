@@ -53,6 +53,7 @@ public class ObjectCorrectnessTracker : MonoBehaviour
             Debug.LogFormat("Scored {0} as {1}", evaluatableObject.gameObject.name, objectScore);
             currentScore += objectScore;
         }
+        Debug.LogFormat("--- FINAL SCORE: {0}", currentScore);
     }
 
     public bool ShouldBeEvaluated(EvaluationCandidateComponent evaluationCandidate, ObjectEvaluator evaluator)

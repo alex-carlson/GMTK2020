@@ -24,6 +24,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1781739075734118969}
   - component: {fileID: 1781739075734118968}
+  - component: {fileID: -514928763288479274}
   m_Layer: 10
   m_Name: Mug
   m_TagString: Prop
@@ -62,6 +63,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-514928763288479274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781739075734118974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05cc9e5e1e6e9748a6f0ee789adada0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criteria:
+  - {fileID: 11400000, guid: 35b618ba3cd71eb4294706c816a23fc7, type: 2}
+  - {fileID: 11400000, guid: 062232e1cde35904ab153a85af869daa, type: 2}
+  - {fileID: 11400000, guid: deee4abcafeb5aa43ac1fab5c72dede5, type: 2}
 --- !u!1 &4614463510249640248
 GameObject:
   m_ObjectHideFlags: 0
