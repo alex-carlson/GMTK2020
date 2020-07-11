@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    UIManager _uiManager;
 
   public int DaytimeCounterSeconds = 120;
   public int NighttimeCounterSeconds = 60;
@@ -14,8 +15,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] float minPhaseTime = 5f;
     [SerializeField] float maxPhaseTime = 40f;
+    public float cycleTime = 10f;
+
+    [SerializeField] int daysLeft = 4;
   void Start()
   {
+        //GameObject.Find("UI Manager").GetComponent<UIManager>();
     StartCoroutine("DayCycle");
   }
 
@@ -27,7 +32,8 @@ public class GameManager : MonoBehaviour
 
   IEnumerator DayCycle()
   {
-    if (SceneManager.GetSceneByBuildIndex(nighttimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(nighttimeSceneIndex);
+        daysLeft--;
+        if (SceneManager.GetSceneByBuildIndex(nighttimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(nighttimeSceneIndex);
     if (!SceneManager.GetSceneByBuildIndex(propsSceneIndex).isLoaded) SceneManager.LoadSceneAsync(propsSceneIndex, LoadSceneMode.Additive);
     SceneManager.LoadSceneAsync(daytimeSceneIndex, LoadSceneMode.Additive);
     yield return new WaitForSeconds(DaytimeCounterSeconds);
@@ -36,6 +42,7 @@ public class GameManager : MonoBehaviour
 
   IEnumerator NightCycle()
   {
+        
     if (SceneManager.GetSceneByBuildIndex(daytimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(daytimeSceneIndex);
     if (!SceneManager.GetSceneByBuildIndex(propsSceneIndex).isLoaded) SceneManager.LoadSceneAsync(propsSceneIndex, LoadSceneMode.Additive);
     SceneManager.LoadSceneAsync(nighttimeSceneIndex, LoadSceneMode.Additive);
