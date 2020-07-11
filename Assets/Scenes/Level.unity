@@ -7235,6 +7235,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TVRemote
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f9e183917bd47b74ba21cd8b5a760189,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f9e183917bd47b74ba21cd8b5a760189,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e183917bd47b74ba21cd8b5a760189, type: 3}
 --- !u!1001 &624284519

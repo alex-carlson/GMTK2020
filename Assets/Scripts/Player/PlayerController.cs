@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
   public Animator animator;
   public bool isHolding;
   public float throwForce = 8;
+  public Color highlightColor = Color.white;
 
   public Rigidbody bodyRB;
   private float moveSpeed = 0;
@@ -99,8 +100,7 @@ public class PlayerController : MonoBehaviour
     if (go != lastHighlighted)
     {
       ClearHighlight();
-      //set outline
-      go.GetComponentInChildren<MeshRenderer>().material.SetColor("Color_2B2C0B3D", Color.white);
+      go.GetComponentInChildren<MeshRenderer>().material.SetColor("Color_2B2C0B3D", highlightColor);
       lastHighlighted = go;
     }
   }
@@ -109,7 +109,6 @@ public class PlayerController : MonoBehaviour
   {
     if (lastHighlighted != null)
     {
-      // clear outline
       lastHighlighted.GetComponentInChildren<MeshRenderer>().material.SetColor("Color_2B2C0B3D", Color.black);
       lastHighlighted = null;
     }
@@ -123,6 +122,7 @@ public class PlayerController : MonoBehaviour
     highlightedObject = go;
     go.transform.position = grabPoint.transform.position;
     grabPoint.connectedBody = go.GetComponent<Rigidbody>();
+    grabPoint.transform.GetComponent<MeshRenderer>().material.SetFloat("Vector1_237C8C32", 0.5f);
   }
 
   void Drop()
@@ -131,6 +131,7 @@ public class PlayerController : MonoBehaviour
     animator.SetBool("isHolding", isHolding);
     highlightedObject = null;
     grabPoint.connectedBody = null;
+    grabPoint.transform.GetComponent<MeshRenderer>().material.SetFloat("Vector1_237C8C32", 1f);
   }
 
   void Throw()
@@ -147,5 +148,6 @@ public class PlayerController : MonoBehaviour
     highlightedObject.GetComponent<Rigidbody>().AddForce(playercam.transform.forward * throwForce, ForceMode.Impulse);
     yield return new WaitForSeconds(0.1f);
     highlightedObject = null;
+    grabPoint.transform.GetComponent<MeshRenderer>().material.SetFloat("Vector1_237C8C32", 1f);
   }
 }

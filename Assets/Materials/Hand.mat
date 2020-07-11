@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: skin
-  m_Shader: {fileID: -6465566751694194690, guid: 4aa46d33b0afb5e49bb0703218e42e0e,
+  m_Name: Hand
+  m_Shader: {fileID: -6465566751694194690, guid: 0ed445ac2d1c84d488681ae97c4e5dba,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -86,6 +86,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_237C8C32: 1
     - Vector1_38BD3441: 0.516
     - Vector1_CF8B0D8D: 6.2
     - Vector1_ED5ABFD9: 0
@@ -117,8 +118,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_28180829: {r: 0.5019608, g: 0.3019608, b: 0.05882353, a: 1}
+    - Color_2B2C0B3D: {r: 0, g: 0, b: 0, a: 1}
     - Color_57D43A16: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 0}
-    - Color_F689E8B9: {r: 0.8773585, g: 0.75163597, b: 0.6000801, a: 1}
+    - Color_F689E8B9: {r: 0.8962264, g: 0.7609469, b: 0.5960751, a: 1}
     - _BaseColor: {r: 0.8584906, g: 0.7987584, b: 0.7086597, a: 1}
     - _Color: {r: 0.6901961, g: 0.45882356, b: 0.40784317, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
