@@ -6,6 +6,7 @@ using RootMotion.Dynamics;
 public class PlayerController : MonoBehaviour
 {
   public Camera playercam;
+  public Transform head;
   public float walkSpeed = 5;
   public float armLength = 4;
   public LayerMask grabbableObjects;
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
   private void Start()
   {
     playercam = Camera.main;
+    FindObjectOfType<CameraManager>().playerCamera = playercam;
+    FindObjectOfType<FollowTransform>().attachedObject = head;
   }
 
   void Update()

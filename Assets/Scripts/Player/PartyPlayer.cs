@@ -13,10 +13,12 @@ public class PartyPlayer : MonoBehaviour
   public Rigidbody rb;
   public float moveSpeed = 0;
   public Animator animator;
+  public Transform head;
 
   private void Start()
   {
     props = GameObject.FindGameObjectsWithTag("Prop");
+    FindObjectOfType<FollowTransform>().attachedObject = head;
     StartCoroutine("ChangeTarget");
   }
 
