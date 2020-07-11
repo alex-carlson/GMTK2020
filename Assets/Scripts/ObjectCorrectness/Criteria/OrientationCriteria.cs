@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "OrientationCriteria", menuName = "Criteria/Orientation Criteria")]
+[CreateAssetMenu(fileName = "OrientationCriteria", menuName = "Criteria/Orientation")]
 public class OrientationCriteria : EvaluationCriteria
 {
     [Serializable]
