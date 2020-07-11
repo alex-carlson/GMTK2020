@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0d945c3644b06047b2763b7b21c497e, type: 3}
-  m_Name: UprightOrientation
+  m_Name: UpsideDownBadOrientation
   m_EditorClassIdentifier: 
-  name: UprightOrientation
-  description: 'This orientation applies to objects that should remain upright. '
+  name: UpsideDownBadOrientation
+  description: This orientation punished the player for having something upside-down.
   rotations:
-  - direction: {x: 0, y: 1, z: 0}
-    cost: 0
-  defaultCost: 1
+  - direction: {x: 0, y: -1, z: 0}
+    cost: 1
+  defaultCost: 0

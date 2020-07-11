@@ -603,3 +603,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   criteria:
   - {fileID: 11400000, guid: 062232e1cde35904ab153a85af869daa, type: 2}
+  - {fileID: 11400000, guid: deee4abcafeb5aa43ac1fab5c72dede5, type: 2}
