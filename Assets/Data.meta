@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/N_gameRoom.unity.meta
+guid: eada16f0e97558242a3b00f684b6dbba
+=======
 guid: 7d42b33392b18694284d92b7811e1fb5
 folderAsset: yes
+>>>>>>> Zack_SurfaceEvaluator:Assets/Data.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

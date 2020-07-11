@@ -5,27 +5,28 @@ using RootMotion.Dynamics;
 
 public class PlayerController : MonoBehaviour
 {
-  public Transform Head;
-  public Transform ArmRight;
-  public Transform ArmLeft;
   public Camera playercam;
-  public float turnSpeed = 5;
   public float walkSpeed = 5;
   public float armLength = 4;
   public LayerMask grabbableObjects;
   public GameObject highlightedObject;
-  public PuppetMaster puppet;
-  public PropMuscle arm;
+  private GameObject lastHighlighted;
+  public FixedJoint grabPoint;
   public Animator animator;
   public bool isHolding;
   public float throwForce = 8;
 
-  private Rigidbody headRB;
   public Rigidbody bodyRB;
   private float moveSpeed = 0;
 
+  private void Start()
+  {
+    playercam = Camera.main;
+  }
+
   void Update()
   {
+    if (!playercam) playercam = Camera.main;
     Vector3 playerRotation = transform.rotation.eulerAngles;
     Vector3 cameraRotation = playercam.transform.rotation.eulerAngles;
     transform.rotation = Quaternion.Euler(playerRotation.x, cameraRotation.y, cameraRotation.z);
@@ -74,16 +75,38 @@ public class PlayerController : MonoBehaviour
 
   void CheckRaycast()
   {
+    Ray ray = playercam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
     RaycastHit hit;
+
     if (isHolding) return;
 
-    if (Physics.Raycast(playercam.transform.position, playercam.transform.forward, out hit, armLength, grabbableObjects))
+    if (Physics.Raycast(ray, out hit, armLength, grabbableObjects))
     {
+      highlightedObject = hit.transform.gameObject;
+      HighlightObject(hit.transform.gameObject);
+    }
+    else
+    {
+      ClearHighlight();
+    }
+  }
 
-      if (hit.transform.GetComponent<PuppetMasterProp>())
-      {
-        highlightedObject = hit.transform.gameObject;
-      }
+  void HighlightObject(GameObject go)
+  {
+    if (go != lastHighlighted)
+    {
+      ClearHighlight();
+      //set outline
+      lastHighlighted = go;
+    }
+  }
+
+  void ClearHighlight()
+  {
+    if (lastHighlighted != null)
+    {
+      // clear outline
+      lastHighlighted = null;
     }
   }
 
@@ -93,7 +116,10 @@ public class PlayerController : MonoBehaviour
     isHolding = true;
     animator.SetBool("isHolding", isHolding);
     highlightedObject = go;
-    arm.currentProp = go.GetComponent<PuppetMasterProp>();
+    go.transform.position = grabPoint.transform.position;
+    grabPoint.connectedBody = go.GetComponent<Rigidbody>();
+    // grabPoint.anchor = Vector3.zero;
+    // grabPoint.connectedAnchor = Vector3.zero;
   }
 
   void Drop()
@@ -101,7 +127,7 @@ public class PlayerController : MonoBehaviour
     isHolding = false;
     animator.SetBool("isHolding", isHolding);
     highlightedObject = null;
-    arm.currentProp = null;
+    grabPoint.connectedBody = null;
   }
 
   void Throw()
@@ -111,7 +137,7 @@ public class PlayerController : MonoBehaviour
 
   IEnumerator ThrowItem()
   {
-    arm.currentProp = null;
+    grabPoint.connectedBody = null;
     isHolding = false;
     animator.SetBool("isHolding", false);
     yield return new WaitForSeconds(0.1f);

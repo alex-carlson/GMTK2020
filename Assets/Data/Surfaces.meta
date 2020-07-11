@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Plugins/Demigiant.meta
+guid: e9e1e2ce73308bd4590021c9a97c295d
+=======
 guid: 33a5306f72c1a39488fe0d0cdf5d6110
+>>>>>>> Zack_SurfaceEvaluator:Assets/Data/Surfaces.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
