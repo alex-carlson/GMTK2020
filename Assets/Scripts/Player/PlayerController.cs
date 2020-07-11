@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
   {
     if (isHolding)
     {
-      Throw();
+      Drop();
     }
     if (highlightedObject)
     {
@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
   void CheckRaycast()
   {
     RaycastHit hit;
+    if (isHolding) return;
 
     if (Physics.Raycast(playercam.transform.position, playercam.transform.forward, out hit, armLength, grabbableObjects))
     {
@@ -104,10 +105,17 @@ public class PlayerController : MonoBehaviour
 
   void Throw()
   {
+    StartCoroutine("ThrowItem");
+  }
+
+  IEnumerator ThrowItem()
+  {
     arm.currentProp = null;
     isHolding = false;
-    animator.SetBool("isHolding", isHolding);
+    animator.SetBool("isHolding", false);
+    yield return new WaitForSeconds(0.1f);
     highlightedObject.GetComponent<Rigidbody>().AddForce(playercam.transform.forward * throwForce, ForceMode.Impulse);
+    yield return new WaitForSeconds(0.1f);
     highlightedObject = null;
   }
 }
