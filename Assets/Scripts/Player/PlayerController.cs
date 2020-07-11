@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
     {
       ClearHighlight();
       //set outline
+      go.GetComponentInChildren<MeshRenderer>().material.SetColor("Color_2B2C0B3D", Color.white);
       lastHighlighted = go;
     }
   }
@@ -109,6 +110,7 @@ public class PlayerController : MonoBehaviour
     if (lastHighlighted != null)
     {
       // clear outline
+      lastHighlighted.GetComponentInChildren<MeshRenderer>().material.SetColor("Color_2B2C0B3D", Color.black);
       lastHighlighted = null;
     }
   }
@@ -121,8 +123,6 @@ public class PlayerController : MonoBehaviour
     highlightedObject = go;
     go.transform.position = grabPoint.transform.position;
     grabPoint.connectedBody = go.GetComponent<Rigidbody>();
-    // grabPoint.anchor = Vector3.zero;
-    // grabPoint.connectedAnchor = Vector3.zero;
   }
 
   void Drop()
