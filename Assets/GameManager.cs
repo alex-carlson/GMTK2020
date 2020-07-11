@@ -13,14 +13,14 @@ public class GameManager : MonoBehaviour
   public int nighttimeSceneIndex = 2;
   public int propsSceneIndex = 3;
 
-  [SerializeField] float minPhaseTime = 5f;
-  [SerializeField] float maxPhaseTime = 40f;
+  [SerializeField] float minPhaseTime = 60f;
+  [SerializeField] float maxPhaseTime = 120f;
   public float cycleTime = 10f;
 
   [SerializeField] int daysLeft = 4;
   void Start()
   {
-    //GameObject.Find("UI Manager").GetComponent<UIManager>();
+    GameObject.Find("UI Manager").GetComponent<UIManager>();
     StartCoroutine("DayCycle");
   }
 
@@ -36,7 +36,10 @@ public class GameManager : MonoBehaviour
     if (SceneManager.GetSceneByBuildIndex(nighttimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(nighttimeSceneIndex);
     if (!SceneManager.GetSceneByBuildIndex(propsSceneIndex).isLoaded) SceneManager.LoadSceneAsync(propsSceneIndex, LoadSceneMode.Additive);
     if (!SceneManager.GetSceneByBuildIndex(daytimeSceneIndex).isLoaded) SceneManager.LoadSceneAsync(daytimeSceneIndex, LoadSceneMode.Additive);
-    yield return new WaitForSeconds(DaytimeCounterSeconds);
+        cycleTime = getPhaseTime();
+        Debug.Log(cycleTime);
+        StartCoroutine(_uiManager.rotateTimer(cycleTime));
+    yield return new WaitForSeconds(cycleTime);
     StartCoroutine("NightCycle");
   }
 
