@@ -12,10 +12,18 @@ public class GameManager : MonoBehaviour
   public int nighttimeSceneIndex = 2;
   public int propsSceneIndex = 3;
 
+    [SerializeField] float minPhaseTime = 5f;
+    [SerializeField] float maxPhaseTime = 40f;
   void Start()
   {
     StartCoroutine("DayCycle");
   }
+
+  float getPhaseTime()
+    {
+        float phaseTime = Random.Range(minPhaseTime, maxPhaseTime);
+        return phaseTime;
+    }
 
   IEnumerator DayCycle()
   {
