@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
 
   void Grab(GameObject go)
   {
+    // TODO: remove prop logic, just parent on your own
     isHolding = true;
     animator.SetBool("isHolding", isHolding);
     highlightedObject = go;
