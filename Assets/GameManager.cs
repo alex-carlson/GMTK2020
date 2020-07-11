@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-  UIManager _uiManager;
+  [SerializeField] UIManager _uiManager;
 
   public int DaytimeCounterSeconds = 120;
   public int NighttimeCounterSeconds = 60;
@@ -20,25 +20,21 @@ public class GameManager : MonoBehaviour
   [SerializeField] int daysLeft = 4;
   void Start()
   {
-    GameObject.Find("UI Manager").GetComponent<UIManager>();
-    StartCoroutine("DayCycle");
-  }
+        StartCoroutine(DayCycle());
+    }
 
-  float getPhaseTime()
+  void setCycle()
   {
-    float phaseTime = Random.Range(minPhaseTime, maxPhaseTime);
-    return phaseTime;
+        cycleTime = Random.Range(minPhaseTime, maxPhaseTime);
+        StartCoroutine(_uiManager.rotateTimer(cycleTime));
   }
 
   IEnumerator DayCycle()
   {
-    daysLeft--;
-    if (SceneManager.GetSceneByBuildIndex(nighttimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(nighttimeSceneIndex);
-    if (!SceneManager.GetSceneByBuildIndex(propsSceneIndex).isLoaded) SceneManager.LoadSceneAsync(propsSceneIndex, LoadSceneMode.Additive);
-    if (!SceneManager.GetSceneByBuildIndex(daytimeSceneIndex).isLoaded) SceneManager.LoadSceneAsync(daytimeSceneIndex, LoadSceneMode.Additive);
-        cycleTime = getPhaseTime();
-        Debug.Log(cycleTime);
-        StartCoroutine(_uiManager.rotateTimer(cycleTime));
+        if (SceneManager.GetSceneByBuildIndex(nighttimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(nighttimeSceneIndex);
+        if (!SceneManager.GetSceneByBuildIndex(propsSceneIndex).isLoaded) SceneManager.LoadSceneAsync(propsSceneIndex, LoadSceneMode.Additive);
+        if (!SceneManager.GetSceneByBuildIndex(daytimeSceneIndex).isLoaded) SceneManager.LoadSceneAsync(daytimeSceneIndex, LoadSceneMode.Additive);
+        setCycle();
     yield return new WaitForSeconds(cycleTime);
     StartCoroutine("NightCycle");
   }
@@ -46,10 +42,11 @@ public class GameManager : MonoBehaviour
   IEnumerator NightCycle()
   {
 
-    if (SceneManager.GetSceneByBuildIndex(daytimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(daytimeSceneIndex);
-    if (!SceneManager.GetSceneByBuildIndex(propsSceneIndex).isLoaded) SceneManager.LoadSceneAsync(propsSceneIndex, LoadSceneMode.Additive);
-    SceneManager.LoadSceneAsync(nighttimeSceneIndex, LoadSceneMode.Additive);
-    yield return new WaitForSeconds(NighttimeCounterSeconds);
+        if (SceneManager.GetSceneByBuildIndex(daytimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(daytimeSceneIndex);
+        if (!SceneManager.GetSceneByBuildIndex(propsSceneIndex).isLoaded) SceneManager.LoadSceneAsync(propsSceneIndex, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(nighttimeSceneIndex, LoadSceneMode.Additive);
+        setCycle();
+        yield return new WaitForSeconds(cycleTime);
     StartCoroutine("DayCycle");
   }
 }
