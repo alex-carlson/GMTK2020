@@ -16,14 +16,19 @@ public class PlayerController : MonoBehaviour
   public GameObject highlightedObject;
   public PuppetMaster puppet;
   public PropMuscle arm;
+  public Animator animator;
+  public bool isHolding;
 
   private Rigidbody headRB;
+  public Rigidbody bodyRB;
 
   void Update()
   {
     Vector3 playerRotation = transform.rotation.eulerAngles;
     Vector3 cameraRotation = playercam.transform.rotation.eulerAngles;
     transform.rotation = Quaternion.Euler(playerRotation.x, cameraRotation.y, cameraRotation.z);
+
+    animator.SetFloat("walkSpeed", Mathf.Abs(Input.GetAxis("Vertical")));
 
     if (Input.GetAxis("Vertical") > 0)
     {
@@ -45,7 +50,10 @@ public class PlayerController : MonoBehaviour
 
   void DoAction()
   {
-    Debug.Log("Clicked the mouse");
+    if (isHolding)
+    {
+      Throw();
+    }
     if (highlightedObject)
     {
       Grab(highlightedObject);
@@ -59,19 +67,17 @@ public class PlayerController : MonoBehaviour
 
   void Forward()
   {
-    transform.Translate((Vector3.forward * Input.GetAxis("Vertical")) * walkSpeed * Time.deltaTime);
+    bodyRB.AddForce((transform.forward * Input.GetAxis("Vertical")) * walkSpeed * Time.deltaTime);
   }
 
   void BackUp()
   {
-    transform.Translate((Vector3.forward * Input.GetAxis("Vertical")) * (walkSpeed / 4) * Time.deltaTime);
+    bodyRB.AddForce((transform.forward * Input.GetAxis("Vertical")) * (walkSpeed / 4) * Time.deltaTime);
   }
 
   void CheckRaycast()
   {
     RaycastHit hit;
-
-    Debug.DrawRay(playercam.transform.position, playercam.transform.forward, Color.magenta, Time.deltaTime);
 
     if (Physics.Raycast(playercam.transform.position, playercam.transform.forward, out hit, armLength, grabbableObjects))
     {
@@ -85,12 +91,23 @@ public class PlayerController : MonoBehaviour
 
   void Grab(GameObject go)
   {
+    isHolding = true;
+    animator.SetBool("isHolding", isHolding);
     highlightedObject = go;
     arm.currentProp = go.GetComponent<PuppetMasterProp>();
   }
 
   void Drop()
   {
+    isHolding = false;
+    animator.SetBool("isHolding", isHolding);
+    highlightedObject = null;
+    arm.currentProp = null;
+  }
 
+  void Throw()
+  {
+    highlightedObject.transform.parent.GetComponent<Rigidbody>().AddForce(playercam.transform.forward, ForceMode.Impulse);
+    Drop();
   }
 }
