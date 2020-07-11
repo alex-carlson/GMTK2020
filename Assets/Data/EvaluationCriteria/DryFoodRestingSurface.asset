@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15b030bd10440324693b58ed1e6b3b78, type: 3}
-  m_Name: FoodAndDrinkRestingSurface
+  m_Name: DryFoodRestingSurface
   m_EditorClassIdentifier: 
-  name: Food and Drink Resting Surface
-  description: This describes thigns that belong in the kitchen (mugs & plates) that
-    would be particularly gross in a bedroom.
+  name: Dry Food Resting Surface
+  description: 'This is similar to Food & Drink, but is easier on the bed because
+    it''s not wet. '
   surfaces:
   - surface: {fileID: 11400000, guid: 8929b13e50c85a24cb9c653010661e72, type: 2}
     cost: 0
   - surface: {fileID: 11400000, guid: 8ca3e991a84950348bcdcf322da2495b, type: 2}
     cost: 2
   - surface: {fileID: 11400000, guid: 81c3779973b48cb47baff4a1c0e238c7, type: 2}
-    cost: 5
+    cost: 1
   - surface: {fileID: 11400000, guid: 0f3614ef9944b9b43ac75034e9903b58, type: 2}
     cost: 0
   - surface: {fileID: 11400000, guid: c99d27ab2b1076f41998375458235268, type: 2}

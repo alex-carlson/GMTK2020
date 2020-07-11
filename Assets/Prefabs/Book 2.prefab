@@ -23,6 +23,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2704702209787068589}
   - component: {fileID: 2778212444269859648}
+  - component: {fileID: 1747949193283796763}
   m_Layer: 10
   m_Name: Book 2
   m_TagString: Prop
@@ -61,6 +62,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1747949193283796763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057587143452584813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05cc9e5e1e6e9748a6f0ee789adada0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criteria:
+  - {fileID: 11400000, guid: e8ae43186e586ab44999fe732ad89c3b, type: 2}
 --- !u!1001 &4420936482821455631
 PrefabInstance:
   m_ObjectHideFlags: 0

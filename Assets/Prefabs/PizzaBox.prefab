@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4506387238917329437}
   - component: {fileID: 659281208538717624}
   - component: {fileID: 3369479281034570098}
+  - component: {fileID: -8905738319516500671}
   m_Layer: 0
   m_Name: PizzaBox
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-8905738319516500671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3873720193531578535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05cc9e5e1e6e9748a6f0ee789adada0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criteria:
+  - {fileID: 11400000, guid: 5cd6fd3d6bd061a49b25b2052eb7f637, type: 2}
