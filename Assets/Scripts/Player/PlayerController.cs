@@ -18,9 +18,11 @@ public class PlayerController : MonoBehaviour
   public PropMuscle arm;
   public Animator animator;
   public bool isHolding;
+  public float throwForce = 8;
 
   private Rigidbody headRB;
   public Rigidbody bodyRB;
+  private float moveSpeed = 0;
 
   void Update()
   {
@@ -30,25 +32,22 @@ public class PlayerController : MonoBehaviour
 
     animator.SetFloat("walkSpeed", Mathf.Abs(Input.GetAxis("Vertical")));
 
-    if (Input.GetAxis("Vertical") > 0)
-    {
-      Forward();
-    }
-
-    if (Input.GetAxis("Vertical") < 0)
-    {
-      BackUp();
-    }
+    Move();
 
     if (Input.GetButtonDown("Fire1"))
     {
-      DoAction();
+      DoLeftClick();
+    }
+
+    if (Input.GetButtonDown("Fire2"))
+    {
+      DoRightClick();
     }
 
     CheckRaycast();
   }
 
-  void DoAction()
+  void DoLeftClick()
   {
     if (isHolding)
     {
@@ -60,19 +59,17 @@ public class PlayerController : MonoBehaviour
     }
   }
 
-  void Turn()
+  void DoRightClick()
   {
-    transform.Rotate((Vector3.up * Input.GetAxis("Horizontal")) * turnSpeed * Time.deltaTime);
+    if (isHolding && highlightedObject) Throw();
   }
 
-  void Forward()
+  void Move()
   {
-    bodyRB.AddForce((transform.forward * Input.GetAxis("Vertical")) * walkSpeed * Time.deltaTime);
-  }
-
-  void BackUp()
-  {
-    bodyRB.AddForce((transform.forward * Input.GetAxis("Vertical")) * (walkSpeed / 4) * Time.deltaTime);
+    bodyRB.velocity =
+      ((transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal")))
+        * walkSpeed
+        * Time.deltaTime;
   }
 
   void CheckRaycast()
@@ -107,7 +104,10 @@ public class PlayerController : MonoBehaviour
 
   void Throw()
   {
-    highlightedObject.transform.parent.GetComponent<Rigidbody>().AddForce(playercam.transform.forward, ForceMode.Impulse);
-    Drop();
+    arm.currentProp = null;
+    isHolding = false;
+    animator.SetBool("isHolding", isHolding);
+    highlightedObject.GetComponent<Rigidbody>().AddForce(playercam.transform.forward * throwForce, ForceMode.Impulse);
+    highlightedObject = null;
   }
 }
