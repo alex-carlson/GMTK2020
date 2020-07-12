@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1798009975331342319}
   - component: {fileID: 8540457760223646396}
-  - component: {fileID: 8010250709057050145}
+  - component: {fileID: 4017193387731734364}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
@@ -49,7 +49,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8010250709057050145
+--- !u!114 &4017193387731734364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,29 +58,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6021299225177135273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 437d6ec63157d574988cc83cdc7c2dac, type: 3}
+  m_Script: {fileID: 11500000, guid: d05cc9e5e1e6e9748a6f0ee789adada0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRoot: {fileID: 5927979715955542303}
-  muscleProps:
-    group: 8
-    mappingWeight: 1
-    pinWeight: 1
-    muscleWeight: 1
-    muscleDamper: 1
-    mapPosition: 0
-    internalCollisionIgnores:
-      ignoreAll: 0
-      muscles: []
-      groups: 
-    animatedTargetChildren: []
-  forceLayers: 1
-  mass: 1
-  propType: 0
-  pickedUpMaterial: {fileID: 0}
-  additionalPinOffsetAdd: {x: 0, y: 0, z: 0}
-  additionalPinWeight: 1
-  additionalPinMass: 1
+  criteria:
+  - {fileID: 11400000, guid: 062232e1cde35904ab153a85af869daa, type: 2}
+  - {fileID: 11400000, guid: e8ae43186e586ab44999fe732ad89c3b, type: 2}
 --- !u!65 &3719712933520271817
 BoxCollider:
   m_ObjectHideFlags: 0
