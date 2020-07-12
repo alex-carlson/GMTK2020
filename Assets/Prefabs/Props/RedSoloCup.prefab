@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1667541564123373140}
   - component: {fileID: 7202262682695574137}
+  - component: {fileID: 5254274900504477934}
   m_Layer: 10
   m_Name: RedSoloCup
   m_TagString: Prop
@@ -48,6 +49,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5254274900504477934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5747475250626881439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05cc9e5e1e6e9748a6f0ee789adada0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criteria:
+  - {fileID: 11400000, guid: e8ae43186e586ab44999fe732ad89c3b, type: 2}
+  - {fileID: 11400000, guid: 35b618ba3cd71eb4294706c816a23fc7, type: 2}
 --- !u!65 &7575976516397784525
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   criteria:
   - {fileID: 11400000, guid: 35b618ba3cd71eb4294706c816a23fc7, type: 2}
+  - {fileID: 11400000, guid: e8ae43186e586ab44999fe732ad89c3b, type: 2}
 --- !u!65 &2974177265788411279
 BoxCollider:
   m_ObjectHideFlags: 0

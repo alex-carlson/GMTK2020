@@ -23,6 +23,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5445416470568122014}
   - component: {fileID: 5445416470568122015}
+  - component: {fileID: -5070931076951044525}
   m_Layer: 0
   m_Name: TvRemote
   m_TagString: Untagged
@@ -61,6 +62,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5070931076951044525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5445416470568122013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05cc9e5e1e6e9748a6f0ee789adada0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criteria:
+  - {fileID: 11400000, guid: 062232e1cde35904ab153a85af869daa, type: 2}
 --- !u!1001 &5445416470114407814
 PrefabInstance:
   m_ObjectHideFlags: 0
