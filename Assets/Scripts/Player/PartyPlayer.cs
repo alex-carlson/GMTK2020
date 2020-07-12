@@ -15,6 +15,7 @@ public class PartyPlayer : MonoBehaviour
   public float currentDistance;
   public bool isThrowing = false;
   public NavMeshAgent agent;
+  public AudioSource audioSource;
 
   private void Start()
   {
@@ -44,6 +45,7 @@ public class PartyPlayer : MonoBehaviour
       target.transform.position = hand.transform.position;
       hand.connectedBody = target.GetComponent<Rigidbody>();
       yield return new WaitForSeconds(0.5f);
+      audioSource.Play();
       hand.connectedBody = null;
       target.GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * ThrowStrength, ForceMode.Impulse);
       target = null;

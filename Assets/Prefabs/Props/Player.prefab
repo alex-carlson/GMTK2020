@@ -291,7 +291,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -2.3283073e-10, y: 0.005531191, z: 4.842877e-10}
+  m_ConnectedAnchor: {x: -9.675828e-17, y: 0.005531191, z: 4.8428794e-10}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0
@@ -1861,7 +1861,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000011920931, y: 0.00398393, z: -0.0000000011728196}
+  m_ConnectedAnchor: {x: -5.9604655e-10, y: 0.00398393, z: -0.0000000011728196}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0
@@ -2116,7 +2116,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000017881396, y: 0.0071348283, z: 0.00000000122661}
+  m_ConnectedAnchor: {x: 0.0000000023841862, y: 0.007134829, z: 0.0000000012266101}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0
@@ -2501,6 +2501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playercam: {fileID: 0}
+  head: {fileID: 0}
   walkSpeed: 2000
   armLength: 10
   grabbableObjects:
@@ -2511,7 +2512,9 @@ MonoBehaviour:
   animator: {fileID: 1676635405575481644}
   isHolding: 0
   throwForce: 35
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
   bodyRB: {fileID: 1676635406232986828}
+  limbs: []
 --- !u!54 &1676635406232986828
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2808,7 +2811,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 5.2654266e-25, y: 0.003983931, z: -0.0000000011856687}
+  m_ConnectedAnchor: {x: -5.9604655e-10, y: 0.003983931, z: -0.0000000011856687}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0

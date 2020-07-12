@@ -19,15 +19,23 @@ public class GameManager : MonoBehaviour
   public TextMeshProUGUI daysRemainingText;
   public RawImage reticle;
   public CanvasGroup TransitionGraphic;
+  public TextMeshProUGUI scoreText;
+  public ObjectCorrectnessTracker tracker;
   void Start()
   {
     StartCoroutine(DayCycle());
+    InvokeRepeating("UpdateScore", 1, 1);
   }
 
   void setCycle()
   {
     cycleTime = Random.Range(minPhaseTime, maxPhaseTime);
     StartCoroutine(_uiManager.rotateTimer(cycleTime));
+  }
+
+  void UpdateScore()
+  {
+    scoreText.text = "Score: " + tracker.currentScore;
   }
 
   IEnumerator DayCycle()

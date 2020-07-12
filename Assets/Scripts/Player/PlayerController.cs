@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
   public Rigidbody bodyRB;
   public LimbIK[] limbs;
   private float moveSpeed = 0;
+  public AudioSource pickupSound;
+  public AudioSource dropSound;
 
   void Update()
   {
@@ -121,10 +123,12 @@ public class PlayerController : MonoBehaviour
     go.transform.position = grabPoint.transform.position;
     grabPoint.connectedBody = go.GetComponent<Rigidbody>();
     grabPoint.transform.GetComponent<MeshRenderer>().material.SetFloat("Vector1_237C8C32", 0.5f);
+    pickupSound.Play();
   }
 
   void Drop()
   {
+    dropSound.Play();
     isHolding = false;
     animator.SetBool("isHolding", isHolding);
     highlightedObject = null;
@@ -143,6 +147,7 @@ public class PlayerController : MonoBehaviour
 
   IEnumerator ThrowItem()
   {
+    dropSound.Play();
     grabPoint.connectedBody = null;
     isHolding = false;
     animator.SetBool("isHolding", false);

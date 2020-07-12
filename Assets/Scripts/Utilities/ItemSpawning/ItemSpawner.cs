@@ -5,55 +5,62 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    private Dictionary<GameObject, ItemSpawnSetting> itemSpawnSettings;
-    private List<SurfaceTypeComponent> objectsWithSurfaces;
+  public int objectCount = 10;
+  private Dictionary<GameObject, ItemSpawnSetting> itemSpawnSettings;
+  public List<SurfaceTypeComponent> objectsWithSurfaces;
 
-    // Start is called before the first frame update
-    void Start()
+  // Start is called before the first frame update
+  void Start()
+  {
+    itemSpawnSettings = new Dictionary<GameObject, ItemSpawnSetting>();
+    ItemSpawnSetting[] settings = GetComponentsInChildren<ItemSpawnSetting>();
+    foreach (ItemSpawnSetting itemSetting in settings)
     {
-        itemSpawnSettings = new Dictionary<GameObject, ItemSpawnSetting>();
-        ItemSpawnSetting[] settings = GetComponentsInChildren<ItemSpawnSetting>();
-        foreach (ItemSpawnSetting itemSetting in settings) {
-            itemSpawnSettings.Add(itemSetting.itemPrefab, itemSetting);
-        }
-
-        objectsWithSurfaces = FindObjectsOfType<SurfaceTypeComponent>().ToList();
+      itemSpawnSettings.Add(itemSetting.itemPrefab, itemSetting);
     }
 
+    objectsWithSurfaces = FindObjectsOfType<SurfaceTypeComponent>().ToList();
 
-    // Update is called once per frame
-    void Update()
+    for (int i = 0; i < objectCount; i++)
     {
-        // This is for testing only
-        if (Input.GetKeyDown("g"))
-        {
-            SpawnRandomObject();
-        }
+      SpawnRandomObject();
+    }
+  }
+
+
+  // Update is called once per frame
+  void Update()
+  {
+    // This is for testing only
+    if (Input.GetKeyDown("g"))
+    {
+      SpawnRandomObject();
+    }
+  }
+
+  public void SpawnRandomObject()
+  {
+    int randSpawnNumber = Random.Range(0, itemSpawnSettings.Count);
+    var spawnChoice = itemSpawnSettings.ElementAt(randSpawnNumber);
+    var legalSpawnSurfaces = spawnChoice.Value.legalSpawnSurfaces;
+    List<SurfaceTypeComponent> legalSurfaces = objectsWithSurfaces.
+        Where(surface => legalSpawnSurfaces.Intersect(surface.types).Any()).ToList();
+    if (legalSurfaces.Count <= 0)
+    {
+      Debug.LogWarningFormat("Tried to spawn a {0} but could find no legal surfaces.");
+      return;
     }
 
-    public void SpawnRandomObject()
-    {
-        int randSpawnNumber = Random.Range(0, itemSpawnSettings.Count);
-        var spawnChoice = itemSpawnSettings.ElementAt(randSpawnNumber);
-        var legalSpawnSurfaces = spawnChoice.Value.legalSpawnSurfaces;
-        List<SurfaceTypeComponent> legalSurfaces = objectsWithSurfaces.
-            Where(surface => legalSpawnSurfaces.Intersect(surface.types).Any()).ToList();
-        if (legalSurfaces.Count <= 0)
-        {
-            Debug.LogWarningFormat("Tried to spawn a {0} but could find no legal surfaces.");
-            return;
-        }
+    int randSurfaceNumber = Random.Range(0, legalSurfaces.Count);
+    GameObject surfaceForSpawning = legalSurfaces[randSurfaceNumber].gameObject;
+    Bounds worldBounds = surfaceForSpawning.GetComponent<Renderer>().bounds;
 
-        int randSurfaceNumber = Random.Range(0, legalSurfaces.Count);
-        GameObject surfaceForSpawning = legalSurfaces[randSurfaceNumber].gameObject;
-        Bounds worldBounds = surfaceForSpawning.GetComponent<Renderer>().bounds;
+    float randXLoc = Random.Range(worldBounds.min.x + .1f, worldBounds.max.x - .1f);
+    float randZLoc = Random.Range(worldBounds.min.z + .1f, worldBounds.max.z - .1f);
+    float yVal = worldBounds.max.y + .1f;
+    Vector3 generationPoint = new Vector3(randXLoc, yVal, randZLoc);
+    Quaternion rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-        float randXLoc = Random.Range(worldBounds.min.x+.1f, worldBounds.max.x-.1f);
-        float randZLoc = Random.Range(worldBounds.min.z+.1f, worldBounds.max.z-.1f);
-        float yVal = worldBounds.max.y+.1f;
-        Vector3 generationPoint = new Vector3(randXLoc, yVal, randZLoc);
-        Quaternion rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-        
-        Instantiate(spawnChoice.Key, generationPoint, rotation);
-    }
+    Instantiate(spawnChoice.Key, generationPoint, rotation);
+  }
 }
