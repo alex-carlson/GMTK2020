@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7485481809626453749}
   - component: {fileID: 4689655260975962214}
   - component: {fileID: 3533211343940518246}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: soap
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,6 +147,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Soap
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 56c10cbe08c1f6d47a9f2f35c5e2dbef,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c10cbe08c1f6d47a9f2f35c5e2dbef, type: 3}

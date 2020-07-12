@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     SceneManager.LoadSceneAsync(nighttimeSceneIndex, LoadSceneMode.Additive);
     reticle.enabled = false;
     setCycle();
-    yield return new WaitForSeconds(cycleTime);
+    yield return new WaitForSeconds(cycleTime / 2);
     TransitionGraphic.DOFade(1, 1);
     ChangeTint(false);
     yield return new WaitForSeconds(4);
