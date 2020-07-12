@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RootMotion.Dynamics;
+using RootMotion.FinalIK;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,14 +19,8 @@ public class PlayerController : MonoBehaviour
   public Color highlightColor = Color.white;
 
   public Rigidbody bodyRB;
+  public LimbIK[] limbs;
   private float moveSpeed = 0;
-
-  private void Start()
-  {
-    playercam = Camera.main;
-    FindObjectOfType<CameraManager>().playerCamera = playercam;
-    FindObjectOfType<FollowTransform>().attachedObject = head;
-  }
 
   void Update()
   {
@@ -117,9 +111,13 @@ public class PlayerController : MonoBehaviour
   void Grab(GameObject go)
   {
     // TODO: remove prop logic, just parent on your own
+    foreach (LimbIK limb in limbs)
+    {
+      limb.solver.IKPositionWeight = 1;
+    }
     isHolding = true;
-    animator.SetBool("isHolding", isHolding);
     highlightedObject = go;
+    animator.SetBool("isHolding", isHolding);
     go.transform.position = grabPoint.transform.position;
     grabPoint.connectedBody = go.GetComponent<Rigidbody>();
     grabPoint.transform.GetComponent<MeshRenderer>().material.SetFloat("Vector1_237C8C32", 0.5f);
@@ -132,6 +130,10 @@ public class PlayerController : MonoBehaviour
     highlightedObject = null;
     grabPoint.connectedBody = null;
     grabPoint.transform.GetComponent<MeshRenderer>().material.SetFloat("Vector1_237C8C32", 1f);
+    foreach (LimbIK limb in limbs)
+    {
+      limb.solver.IKPositionWeight = 0;
+    }
   }
 
   void Throw()
@@ -149,5 +151,9 @@ public class PlayerController : MonoBehaviour
     yield return new WaitForSeconds(0.1f);
     highlightedObject = null;
     grabPoint.transform.GetComponent<MeshRenderer>().material.SetFloat("Vector1_237C8C32", 1f);
+    foreach (LimbIK limb in limbs)
+    {
+      limb.solver.IKPositionWeight = 0;
+    }
   }
 }
