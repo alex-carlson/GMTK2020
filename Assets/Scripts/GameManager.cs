@@ -21,10 +21,13 @@ public class GameManager : MonoBehaviour
   public CanvasGroup TransitionGraphic;
   public TextMeshProUGUI scoreText;
   public ObjectCorrectnessTracker tracker;
+  public Material[] roomMaterials;
+  public Color highlightColor;
   void Start()
   {
     StartCoroutine(DayCycle());
     InvokeRepeating("UpdateScore", 1, 1);
+    ChangeTint(false);
   }
 
   void setCycle()
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour
     yield return new WaitForSeconds(cycleTime);
     TransitionGraphic.DOFade(1, 1);
     yield return new WaitForSeconds(4);
+    ChangeTint(true);
     TransitionGraphic.DOFade(0, 1);
     StartCoroutine("NightCycle");
   }
@@ -62,8 +66,27 @@ public class GameManager : MonoBehaviour
     setCycle();
     yield return new WaitForSeconds(cycleTime);
     TransitionGraphic.DOFade(1, 1);
+    ChangeTint(false);
     yield return new WaitForSeconds(4);
     TransitionGraphic.DOFade(0, 1);
     StartCoroutine("DayCycle");
+  }
+
+  void ChangeTint(bool darken = true)
+  {
+    foreach (Material m in roomMaterials)
+    {
+      Color newColor;
+
+      if (darken)
+      {
+        newColor = highlightColor;
+      }
+      else
+      {
+        newColor = Color.white;
+      }
+      m.SetColor("Color_57D43A16", newColor);
+    }
   }
 }

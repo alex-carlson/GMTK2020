@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour
 
     animator.SetFloat("walkSpeed", Mathf.Abs(Input.GetAxis("Vertical")));
 
-    Move();
-
     if (Input.GetButtonDown("Fire1"))
     {
       DoLeftClick();
@@ -63,6 +61,11 @@ public class PlayerController : MonoBehaviour
   void DoRightClick()
   {
     if (isHolding && highlightedObject) Throw();
+  }
+
+  private void FixedUpdate()
+  {
+    Move();
   }
 
   void Move()

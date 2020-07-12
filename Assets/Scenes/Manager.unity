@@ -1183,14 +1183,23 @@ MonoBehaviour:
   daytimeSceneIndex: 2
   nighttimeSceneIndex: 3
   propsSceneIndex: 4
-  minPhaseTime: 60
-  maxPhaseTime: 120
+  minPhaseTime: 10
+  maxPhaseTime: 20
   cycleTime: 10
   daysRemainingText: {fileID: 158076155}
   reticle: {fileID: 908215863}
   TransitionGraphic: {fileID: 754527654}
   scoreText: {fileID: 1517167860}
   tracker: {fileID: 781329318}
+  roomMaterials:
+  - {fileID: 2100000, guid: 2e181860e73e89e46a8d4ead2767f6c0, type: 2}
+  - {fileID: 2100000, guid: 7135c45fed389e248bd965e39c42286f, type: 2}
+  - {fileID: 2100000, guid: 858085e50a5bfd541bb902e1964ae843, type: 2}
+  - {fileID: 2100000, guid: 6505a5b7ef467274da1ac39e4d2c2c5d, type: 2}
+  - {fileID: 2100000, guid: b0bd2a7462c0ae24abcd0b26ca05f45f, type: 2}
+  - {fileID: 2100000, guid: 3b89fffc89af72740ae7acb1afaf742e, type: 2}
+  - {fileID: 2100000, guid: f4b04df996f4d2d4fb35aa30e2cb80b2, type: 2}
+  highlightColor: {r: 0.3584906, g: 0.103150584, b: 0.30521813, a: 0}
 --- !u!4 &2000968743
 Transform:
   m_ObjectHideFlags: 0

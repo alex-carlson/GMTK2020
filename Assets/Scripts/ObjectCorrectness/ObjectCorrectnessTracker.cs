@@ -50,10 +50,10 @@ public class ObjectCorrectnessTracker : MonoBehaviour
         ObjectEvaluator evaluator = evaluators[criteria.GetType()];
         objectScore += evaluator.Evaluate(evaluatableObject, criteria);
       }
-      Debug.LogFormat("Scored {0} as {1}", evaluatableObject.gameObject.name, objectScore);
+      // Debug.LogFormat("Scored {0} as {1}", evaluatableObject.gameObject.name, objectScore);
       currentScore += objectScore;
     }
-    Debug.LogFormat("--- FINAL SCORE: {0}", currentScore);
+    // Debug.LogFormat("--- FINAL SCORE: {0}", currentScore);
   }
 
   public bool ShouldBeEvaluated(EvaluationCandidateComponent evaluationCandidate, ObjectEvaluator evaluator)
