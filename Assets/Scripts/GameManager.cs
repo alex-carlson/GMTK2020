@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,7 +24,9 @@ public class GameManager : MonoBehaviour
   public CanvasGroup TransitionGraphic;
   public TextMeshProUGUI scoreText;
   public ObjectCorrectnessTracker tracker;
-  void Start()
+    [Space]
+    public UnityEvent Switch = new UnityEvent();
+    void Start()
   {
     StartCoroutine(DayCycle());
     InvokeRepeating("UpdateScore", 1, 1);
