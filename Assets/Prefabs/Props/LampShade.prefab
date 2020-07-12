@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7995723647116424680}
   - component: {fileID: 6179483873861934427}
-  m_Layer: 0
+  - component: {fileID: 823860412485732282}
+  m_Layer: 10
   m_Name: LampShade
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +49,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &823860412485732282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6347302269793145823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05cc9e5e1e6e9748a6f0ee789adada0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criteria: []
 --- !u!135 &6884399101255410724
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -151,20 +165,45 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5506070400618958933, guid: 0bfaef783700340439a6d1519d8cefa4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -3831216774648649364, guid: 0bfaef783700340439a6d1519d8cefa4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3b89fffc89af72740ae7acb1afaf742e, type: 2}
+    - target: {fileID: -3133498875991405556, guid: 0bfaef783700340439a6d1519d8cefa4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -2859109400176981367, guid: 0bfaef783700340439a6d1519d8cefa4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3b89fffc89af72740ae7acb1afaf742e, type: 2}
+    - target: {fileID: -2554366770376669037, guid: 0bfaef783700340439a6d1519d8cefa4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0bfaef783700340439a6d1519d8cefa4,
         type: 3}
       propertyPath: m_Name
       value: Lampshade
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0bfaef783700340439a6d1519d8cefa4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0bfaef783700340439a6d1519d8cefa4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bfaef783700340439a6d1519d8cefa4, type: 3}

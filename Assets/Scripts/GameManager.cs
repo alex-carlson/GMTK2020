@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,18 +17,20 @@ public class GameManager : MonoBehaviour
   [SerializeField] float minPhaseTime = 60f;
   [SerializeField] float maxPhaseTime = 120f;
   public float cycleTime = 10f;
+  public int daysLeft = 4;
+  [Space]
   public TextMeshProUGUI daysRemainingText;
   public RawImage reticle;
   public CanvasGroup TransitionGraphic;
   public TextMeshProUGUI scoreText;
   public ObjectCorrectnessTracker tracker;
-  public Material[] roomMaterials;
-  public Color highlightColor;
+  [Space]
+  public UnityEvent Switch = new UnityEvent();
   void Start()
   {
     StartCoroutine(DayCycle());
     InvokeRepeating("UpdateScore", 1, 1);
-    ChangeTint(false);
+    daysRemainingText.text = daysLeft.ToString();
   }
 
   void setCycle()
@@ -69,6 +72,7 @@ public class GameManager : MonoBehaviour
     ChangeTint(false);
     yield return new WaitForSeconds(4);
     TransitionGraphic.DOFade(0, 1);
+    RemoveDay();
     StartCoroutine("DayCycle");
   }
 
@@ -88,5 +92,15 @@ public class GameManager : MonoBehaviour
       }
       m.SetColor("Color_57D43A16", newColor);
     }
+  }
+  void RemoveDay()
+  {
+    if (daysLeft <= 0)
+    {
+      //end the game
+    }
+
+    daysLeft--;
+    daysRemainingText.text = daysLeft.ToString();
   }
 }
