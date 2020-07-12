@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
   [SerializeField] float minPhaseTime = 60f;
   [SerializeField] float maxPhaseTime = 120f;
   public float cycleTime = 10f;
+    public int daysLeft = 4;
+    [Space]
   public TextMeshProUGUI daysRemainingText;
   public RawImage reticle;
   public CanvasGroup TransitionGraphic;
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
   {
     StartCoroutine(DayCycle());
     InvokeRepeating("UpdateScore", 1, 1);
+        daysRemainingText.text = daysLeft.ToString();
   }
 
   void setCycle()
@@ -64,6 +67,18 @@ public class GameManager : MonoBehaviour
     TransitionGraphic.DOFade(1, 1);
     yield return new WaitForSeconds(4);
     TransitionGraphic.DOFade(0, 1);
+        RemoveDay();
     StartCoroutine("DayCycle");
   }
+
+    void RemoveDay()
+    {
+        if(daysLeft <= 0)
+        {
+            //end the game
+        }
+
+        daysLeft--;
+        daysRemainingText.text = daysLeft.ToString();
+    }
 }

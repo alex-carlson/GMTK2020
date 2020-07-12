@@ -1183,8 +1183,8 @@ MonoBehaviour:
   daytimeSceneIndex: 2
   nighttimeSceneIndex: 3
   propsSceneIndex: 4
-  minPhaseTime: 60
-  maxPhaseTime: 120
+  minPhaseTime: 30
+  maxPhaseTime: 45
   cycleTime: 10
   daysRemainingText: {fileID: 158076155}
   reticle: {fileID: 908215863}

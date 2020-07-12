@@ -22,9 +22,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5270356847212854129}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Potted Plant
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,17 +110,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b4142d719f3ae0349bf7d5ab73a7d10a, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: -1374161610312379201, guid: 25a446f0bd86f6749a2a6078d10632f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 25a446f0bd86f6749a2a6078d10632f5,
         type: 3}
       propertyPath: m_Name
       value: Plant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 25a446f0bd86f6749a2a6078d10632f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 25a446f0bd86f6749a2a6078d10632f5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7195912258332508970, guid: 25a446f0bd86f6749a2a6078d10632f5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b4142d719f3ae0349bf7d5ab73a7d10a, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a446f0bd86f6749a2a6078d10632f5, type: 3}
 --- !u!1 &1404625709359967637 stripped
