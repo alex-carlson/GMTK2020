@@ -25,12 +25,12 @@ public class UIManager : MonoBehaviour
     timerUI = GameObject.Find("Time Dial");
   }
 
-    public void toggleInstructions()
-    {
-        //activate or deactivate the daytime control instructions
-        pickUP.SetActive(!pickUP.activeSelf);
-        Throw.SetActive(!Throw.activeSelf);
-    }
+  public void toggleInstructions()
+  {
+    //activate or deactivate the daytime control instructions
+    pickUP.SetActive(!pickUP.activeSelf);
+    Throw.SetActive(!Throw.activeSelf);
+  }
 
 
   public IEnumerator rotateTimer(float time)
@@ -42,8 +42,7 @@ public class UIManager : MonoBehaviour
       spunUP = true;
     }
 
-    timerRotate += 180;
-        Debug.Log(timerRotate);
+    timerRotate += 90;
     timerUI.transform.DOLocalRotate(new Vector3(0, 0, timerRotate), time - 1).SetEase(Ease.Linear);
     yield return new WaitForSeconds(time);
   }

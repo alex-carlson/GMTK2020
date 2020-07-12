@@ -23,9 +23,18 @@ public class GameManager : MonoBehaviour
   public RawImage reticle;
   public CanvasGroup TransitionGraphic;
   public TextMeshProUGUI scoreText;
+  public Image scoreBar;
   public ObjectCorrectnessTracker tracker;
+  public Material[] roomMaterials;
+  public Color highlightColor;
   [Space]
   public UnityEvent Switch = new UnityEvent();
+  [Space(20)]
+  public int baseScore = 9;
+  public int minScore = 0;
+  public int maxScore = 60;
+  public float score;
+  public float normalized;
   void Start()
   {
     StartCoroutine(DayCycle());
@@ -41,11 +50,18 @@ public class GameManager : MonoBehaviour
 
   void UpdateScore()
   {
+    tracker.UpdateCandidates();
+    score = tracker.currentScore - baseScore;
+    normalized = Mathf.Clamp(score / maxScore, 0, 1);
+
     scoreText.text = "Score: " + tracker.currentScore;
+    scoreBar.fillAmount = 1 - normalized;
+    scoreBar.color = new Color(normalized, 1 - normalized, 0);
   }
 
   IEnumerator DayCycle()
   {
+    tracker.UpdateCandidates();
     if (SceneManager.GetSceneByBuildIndex(nighttimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(nighttimeSceneIndex);
     if (!SceneManager.GetSceneByBuildIndex(propsSceneIndex).isLoaded) SceneManager.LoadSceneAsync(propsSceneIndex, LoadSceneMode.Additive);
     if (!SceneManager.GetSceneByBuildIndex(daytimeSceneIndex).isLoaded) SceneManager.LoadSceneAsync(daytimeSceneIndex, LoadSceneMode.Additive);
@@ -61,7 +77,7 @@ public class GameManager : MonoBehaviour
 
   IEnumerator NightCycle()
   {
-
+    tracker.UpdateCandidates();
     if (SceneManager.GetSceneByBuildIndex(daytimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(daytimeSceneIndex);
     if (!SceneManager.GetSceneByBuildIndex(propsSceneIndex).isLoaded) SceneManager.LoadSceneAsync(propsSceneIndex, LoadSceneMode.Additive);
     SceneManager.LoadSceneAsync(nighttimeSceneIndex, LoadSceneMode.Additive);

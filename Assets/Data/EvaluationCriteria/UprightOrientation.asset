@@ -17,4 +17,4 @@ MonoBehaviour:
   rotations:
   - direction: {x: 0, y: 1, z: 0}
     cost: 0
-  defaultCost: 1
+  defaultCost: 0
