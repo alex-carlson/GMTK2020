@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     StartCoroutine(DayCycle());
     InvokeRepeating("UpdateScore", 1, 1);
     daysRemainingText.text = daysLeft.ToString();
+    ChangeTint(false);
   }
 
   void setCycle()
