@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
   void DoRightClick()
   {
-    if (isHolding && highlightedObject) Throw();
+    if (isHolding && highlightedObject) Drop();
   }
 
   private void FixedUpdate()
