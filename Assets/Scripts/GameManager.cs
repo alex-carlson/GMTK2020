@@ -12,10 +12,11 @@ public class GameManager : MonoBehaviour
   [SerializeField] UIManager _uiManager;
   public int daytimeSceneIndex = 1;
   public int nighttimeSceneIndex = 2;
+  public int endGameSceneIndex = 4;
   public int propsSceneIndex = 3;
 
-  [SerializeField] float minPhaseTime = 60f;
-  [SerializeField] float maxPhaseTime = 120f;
+  [SerializeField] float minPhaseTime = 30f;
+  [SerializeField] float maxPhaseTime = 45f;
   public float cycleTime = 10f;
   public int daysLeft = 4;
   [Space]
@@ -73,6 +74,13 @@ public class GameManager : MonoBehaviour
     yield return new WaitForSeconds(4);
     ChangeTint(true);
     TransitionGraphic.DOFade(0, 1);
+    RemoveDay();
+    if (daysLeft <= 0)
+    {
+      StopCoroutine("NightCycle");
+      StopCoroutine("DayCycle");
+      yield return null;
+    }
     StartCoroutine("NightCycle");
   }
 
@@ -89,7 +97,6 @@ public class GameManager : MonoBehaviour
     ChangeTint(false);
     yield return new WaitForSeconds(4);
     TransitionGraphic.DOFade(0, 1);
-    RemoveDay();
     StartCoroutine("DayCycle");
   }
 
@@ -112,12 +119,23 @@ public class GameManager : MonoBehaviour
   }
   void RemoveDay()
   {
-    if (daysLeft <= 0)
-    {
-      //end the game
-    }
-
     daysLeft--;
     daysRemainingText.text = daysLeft.ToString();
+    if (daysLeft <= 0)
+    {
+      Debug.Log("end game");
+      StopCoroutine("NightCycle");
+      StopCoroutine("DayCycle");
+      //end the game
+      if (SceneManager.GetSceneByBuildIndex(nighttimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(nighttimeSceneIndex);
+      if (SceneManager.GetSceneByBuildIndex(daytimeSceneIndex).isLoaded) SceneManager.UnloadSceneAsync(daytimeSceneIndex);
+      SceneManager.LoadSceneAsync(endGameSceneIndex, LoadSceneMode.Additive);
+      Invoke("ReturnToMenu", 10);
+    }
+  }
+
+  void ReturnToMenu()
+  {
+    SceneManager.LoadScene(0);
   }
 }

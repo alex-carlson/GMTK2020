@@ -1,0 +1,25 @@
+<<<<<<< HEAD:Assets/Scripts/SwitchMaterial.cs.meta
+fileFormatVersion: 2
+guid: fadfeb9d55b19194b9a3e2e87c4b0a23
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 30e5f6f69554393429895b4218101858
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> origin/finalscene:Assets/FinalScoreUI.cs.meta

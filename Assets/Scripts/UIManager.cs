@@ -42,8 +42,8 @@ public class UIManager : MonoBehaviour
       spunUP = true;
     }
 
-    timerRotate += 90;
-    timerUI.transform.DOLocalRotate(new Vector3(0, 0, timerRotate), time - 1).SetEase(Ease.Linear);
+    timerRotate += 180;
+    timerUI.transform.DOLocalRotate(new Vector3(0, 0, timerRotate - 90), time - 1).SetEase(Ease.Linear);
     yield return new WaitForSeconds(time);
   }
 }

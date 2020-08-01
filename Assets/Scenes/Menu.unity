@@ -956,7 +956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 109, y: 97}
+  m_AnchoredPosition: {x: 50.799957, y: 45}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &168089147
@@ -6945,7 +6945,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318551297
 MonoBehaviour:
@@ -6966,7 +6966,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: After Party
+  m_text: 'Party
+
+    Animal'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ecdf9038096bb843b2422385feba4cf, type: 2}
   m_sharedMaterial: {fileID: 7265099723323694858, guid: 9ecdf9038096bb843b2422385feba4cf,
@@ -7036,12 +7038,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 318551297}
-    characterCount: 11
+    characterCount: 12
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -7458,9 +7460,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Party time!  Mom and Dad are gone for the weekend, time to party every
-    night!  But make sure to keep the place clean during the day, or they'll be very
-    angry!
+  m_text: 'Keeping things clean seems easy, until night that is. When the sun sets
+    and the moon rises, the inner party animal is unleashed and won''t stop trashing
+    everything!
+
+    
+
+    There''s no cure for headbanging, keep your house clean
+    before you parents come home to visit! The battle of cleanliness and anarchy
+    begins now'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5ee83738e4e282428f07665c4a9a99d, type: 2}
   m_sharedMaterial: {fileID: -6923662855325462416, guid: b5ee83738e4e282428f07665c4a9a99d,
@@ -7489,8 +7497,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7530,12 +7538,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 355299565}
-    characterCount: 158
+    characterCount: 309
     spriteCount: 0
-    spaceCount: 32
-    wordCount: 31
+    spaceCount: 52
+    wordCount: 52
     linkCount: 0
-    lineCount: 5
+    lineCount: 9
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -10485,10 +10493,10 @@ RectTransform:
   m_Father: {fileID: 1573607244}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 400}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 300, y: 0}
+  m_SizeDelta: {x: 375, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &652632245
 MonoBehaviour:
@@ -10718,7 +10726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 227, y: -229}
+  m_AnchoredPosition: {x: 217.29996, y: -227.45001}
   m_SizeDelta: {x: 130.1, y: 55.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659593680
@@ -19450,7 +19458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 401, y: 159}
+  m_AnchoredPosition: {x: 273.1, y: 45}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1244444844
