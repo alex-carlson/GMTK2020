@@ -37,30 +37,22 @@ public class FinalScoreUI : MonoBehaviour
       parentsMessage.text = happy;
     }
     // >= 10 ambivilent
-    if (managerRef.score <= 10)
+    if (managerRef.score > 10 && managerRef.score < 30)
     {
       finalGrade.text = Immaculate;
       parentsMessage.text = ambivilent;
     }
     // >= 30 unhappy
-    if (managerRef.score <= 10)
+    if (managerRef.score >= 30 && managerRef.score < 50)
     {
       finalGrade.text = Messy;
       parentsMessage.text = unhappy;
     }
     //>= 50 unhappy
-    if (managerRef.score <= 10)
+    if (managerRef.score >= 50)
     {
       finalGrade.text = Filthy;
       parentsMessage.text = mad;
     }
-
-    Invoke("UnlockCursor", 3);
-  }
-
-  void UnloadCursor()
-  {
-    Cursor.lockState = CursorLockMode.None;
-    Cursor.visible = true;
   }
 }

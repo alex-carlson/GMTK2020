@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000004, guid: 0349cf51d9750804da5ab67480705d3e,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1568,10 +1568,10 @@ MonoBehaviour:
   nighttimeSceneIndex: 3
   endGameSceneIndex: 5
   propsSceneIndex: 4
-  minPhaseTime: 2
-  maxPhaseTime: 4
+  minPhaseTime: 30
+  maxPhaseTime: 45
   cycleTime: 10
-  daysLeft: 2
+  daysLeft: 4
   daysRemainingText: {fileID: 158076155}
   reticle: {fileID: 15570249}
   TransitionGraphic: {fileID: 754527654}
@@ -1595,7 +1595,6 @@ MonoBehaviour:
   maxScore: 60
   score: 0
   normalized: 0
-  Canvas: {fileID: 1906356397}
 --- !u!4 &2000968743
 Transform:
   m_ObjectHideFlags: 0
